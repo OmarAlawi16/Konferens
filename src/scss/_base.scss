@@ -3,6 +3,7 @@
 // ==========================================
 @use 'variables' as vars;
 
+// Universal Box-Sizing & Reset
 *,
 *::before,
 *::after {
@@ -11,21 +12,177 @@
   padding: 0;
 }
 
+// Accessible Motion: Smooth scrolling only when preferred
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Prevent Horizontal Overflow across all viewports (320px to 1440px & 300% zoom)
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
 html {
   font-size: 100%;
-  scroll-behavior: smooth;
 }
 
 body {
-  font-family: vars.$font-family-base;
-  font-size: vars.$font-size-base;
-  line-height: vars.$line-height-normal;
-  color: vars.$color-text;
-  background-color: vars.$color-bg;
+  font-family: vars.$font-sans;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color vars.$transition-base,
+    color vars.$transition-base;
 }
 
+// ------------------------------------------
+// Accessible Skip-To-Content Link
+// ------------------------------------------
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: 1rem;
+  z-index: 9999;
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  font-size: var(--font-size-base);
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-primary-contrast);
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-accent);
+  border-radius: vars.$radius-md;
+  box-shadow: 0 4px 16px var(--color-shadow-lg);
+  transition: top vars.$transition-fast ease-in-out;
+
+  &:focus,
+  &:focus-visible {
+    top: 1rem;
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+// ------------------------------------------
+// Accessible Keyboard Focus Styles
+// ------------------------------------------
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+// ------------------------------------------
+// Base Typography
+// ------------------------------------------
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: vars.$font-heading;
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  font-weight: 700;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--font-size-hero);
+  margin-bottom: var(--space-md);
+}
+
+h2 {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-sm);
+}
+
+h3 {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--space-xs);
+}
+
+p {
+  margin-bottom: var(--space-md);
+  color: inherit;
+  text-wrap: pretty;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ul,
+ol {
+  margin-bottom: var(--space-md);
+  padding-left: 1.5rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+li {
+  margin-bottom: var(--space-xs);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+address {
+  font-style: normal;
+  line-height: var(--line-height-base);
+  color: inherit;
+}
+
+// Links
+a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color vars.$transition-fast;
+
+  &:hover {
+    color: var(--color-primary-hover);
+  }
+}
+
+// Media
 img,
 picture,
 video,
@@ -36,41 +193,21 @@ svg {
   height: auto;
 }
 
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-xs);
+}
+
+// Form & Interactive Controls
 input,
 button,
 textarea,
 select {
   font: inherit;
-}
-
-a {
-  color: vars.$color-primary-light;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-  transition: color vars.$transition-default;
-
-  &:hover,
-  &:focus {
-    color: vars.$color-primary;
-  }
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: vars.$font-family-heading;
-  line-height: vars.$line-height-tight;
-  color: vars.$color-neutral-900;
-  font-weight: 700;
-}
-
-p {
-  margin-bottom: vars.$spacing-md;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+  color: inherit;
 }

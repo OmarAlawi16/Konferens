@@ -100,3 +100,13 @@ Projektet följer **BEM** (Block Element Modifier) för modulär, förutsägbar 
   - Skapade en arkitektonisk områdeskarta (`map-venue.webp`) i 1000x560px för Münchenbryggeriet vid Söder Mälarstrand med utmärkta tunnelbanestationer (Mariatorget, Slussen), gångvägar och bussförbindelser (33.6 KB, långt under 150 KB-kravet).
   - Verifierade och uppdaterade `index.html` med exakta dimensioner (`width`/`height`), deskriptiva `alt`-texter på svenska och `loading="lazy"`.
   - Tog bort `assets/images/.gitkeep` och formaterade med Prettier.
+
+### Grundläggande Sass-arkitektur & Tillgänglig styling
+
+- **Prompt:** Implementera den grundläggande Sass-stylingen i `src/scss/` med responsiv flytande typografi, WCAG AA/AAA-kontrast, automatiskt stöd för ljust/mörkt tema (`prefers-color-scheme`) och anpassade tangentbordsfokus-stilar.
+- **Åtgärder:**
+  - Uppdaterade `_variables.scss` med breakpoints (`$bp-tablet: 768px`, `$bp-desktop: 1024px`, `$bp-wide: 1440px`), design-tokens och CSS-variabler för både ljust och mörkt läge (`prefers-color-scheme: dark`).
+  - Verifierade matematiskt att alla text/bakgrund- och UI-border-färgkombinationer uppfyller eller överträffar WCAG AA (> 4.5:1 för text, > 3:1 för UI-komponenter).
+  - Uppdaterade `_base.scss` med `html { scroll-behavior: smooth; }` omslutet i `@media (prefers-reduced-motion: no-preference)`, `overflow-x: clip` för att eliminera horisontell scrollning vid 320–1440px och upp till 300% zoom, samt flytande typografi med `clamp()`.
+  - Stylade tillgänglig skip-link (`.skip-link`) som syns vid `:focus-visible` samt anpassad högkontrast-fokusram (`outline: 3px solid var(--color-accent); outline-offset: 3px;`) för interaktiva element.
+  - Kompilerade CSS med `npm run build:sass` och formaterade källkoden med Prettier.

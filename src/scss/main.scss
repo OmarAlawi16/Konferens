@@ -6,10 +6,10 @@
 @use 'variables' as vars;
 @use 'base';
 
-// Layout & Component placeholders
+// Layout Container
 .container {
   width: 100%;
   max-width: vars.$container-max-width;
   margin-inline: auto;
-  padding-inline: vars.$container-padding;
+  padding-inline: var(--container-padding);
 }
