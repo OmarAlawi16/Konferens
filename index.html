@@ -5,34 +5,664 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Officiell webbplats för Konferens 2026 – mötesplatsen för framtidens innovationer och idéer."
+      content="Nordic AI & Future Web 2026 i Stockholm – Nordens ledande konferens för artificiell intelligens, WebGPU, edge computing och modern webbutveckling."
     />
-    <title>Konferens 2026</title>
+    <title>Nordic AI &amp; Future Web 2026 | Stockholm</title>
     <link rel="stylesheet" href="dist/css/style.css" />
   </head>
   <body>
-    <header class="header">
-      <div class="container header__container">
-        <h1 class="header__title">Konferens 2026</h1>
-        <p class="header__tagline">Mötesplatsen för framtidens teknik och innovation</p>
+    <a href="#main-content" class="skip-link">Hoppa till huvudinnehåll</a>
+
+    <header class="hero">
+      <nav class="nav" aria-label="Huvudnavigation">
+        <div class="container nav__container">
+          <a href="#" class="nav__brand">Nordic AI &amp; Future Web</a>
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="#program" class="nav__link">Program</a>
+            </li>
+            <li class="nav__item">
+              <a href="#talare" class="nav__link">Talare</a>
+            </li>
+            <li class="nav__item">
+              <a href="#biljetter" class="nav__link">Biljetter</a>
+            </li>
+            <li class="nav__item">
+              <a href="#praktisk-info" class="nav__link">Praktisk info</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container hero__container">
+        <p class="hero__badge">Nordens ledande mötesplats inom AI och modern webbutveckling</p>
+        <h1 class="hero__title">Nordic AI &amp; Future Web 2026</h1>
+        <p class="hero__tagline">
+          Där artificiell intelligens möter nästa generations webbutveckling. Utforska autonoma
+          system, intelligenta gränssnitt och framtidens webbstandarder.
+        </p>
+
+        <div class="hero__meta">
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Datum:</span>
+            <time datetime="2026-11-20" class="hero__date">20 november 2026</time>
+          </div>
+          <div class="hero__meta-item">
+            <span class="hero__meta-label">Plats:</span>
+            <span class="hero__location">Münchenbryggeriet, Stockholm</span>
+          </div>
+        </div>
+
+        <div class="hero__actions">
+          <a href="#biljetter" class="btn btn--primary hero__cta">Säkra din biljett</a>
+        </div>
       </div>
     </header>
 
-    <main class="main-content">
-      <section class="hero">
-        <div class="container hero__container">
-          <h2 class="hero__headline">Välkommen till årets mest inspirerande konferens</h2>
-          <p class="hero__description">
-            Upptäck nya perspektiv, knyt värdefulla kontakter och ta del av ledande experters
-            insikter.
-          </p>
+    <main id="main-content" class="main-content">
+      <!-- Sektion: Program -->
+      <section id="program" class="schedule" aria-labelledby="schedule-heading">
+        <div class="container schedule__container">
+          <header class="section-header">
+            <h2 id="schedule-heading" class="section-header__title">Program &amp; Schema</h2>
+            <p class="section-header__subtitle">
+              En intensiv heldag fylld med banbrytande föreläsningar, tekniska djupdykningar och
+              interaktiva sessioner.
+            </p>
+          </header>
+
+          <ol class="schedule__list">
+            <li class="schedule__item">
+              <time datetime="08:30" class="schedule__time">08:30 – 09:15</time>
+              <div class="schedule__details">
+                <h3 class="schedule__title">Registrering, frukostmingel och morgonkaffe</h3>
+                <p class="schedule__speaker">Konferensarrangörerna</p>
+                <p class="schedule__description">
+                  Hämta din namnbricka och konferenspaket, njut av en ekologisk frukostbuffé och
+                  inled dagen med värdefullt nätverkande.
+                </p>
+              </div>
+            </li>
+
+            <li class="schedule__item">
+              <time datetime="09:15" class="schedule__time">09:15 – 10:15</time>
+              <div class="schedule__details">
+                <h3 class="schedule__title">
+                  Keynote: Generativ AI direkt i webbläsaren med WebGPU
+                </h3>
+                <p class="schedule__speaker">Dr. Astrid Lindholm, Nordic Intelligence</p>
+                <p class="schedule__description">
+                  Hur WebGPU och små, optimerade språkmodeller revolutionerar klientarkitekturer,
+                  minimerar svarstider och garanterar användarnas integritet i realtid.
+                </p>
+              </div>
+            </li>
+
+            <li class="schedule__item">
+              <time datetime="10:30" class="schedule__time">10:30 – 11:30</time>
+              <div class="schedule__details">
+                <h3 class="schedule__title">
+                  Framtidens webbarkitektur: Från SSR till Edge Computing
+                </h3>
+                <p class="schedule__speaker">Johan Bergström, CloudNordic</p>
+                <p class="schedule__description">
+                  Djupdykning i hur edge-funktioner, distribuerade databaser och smart streaming
+                  ersätter traditionella monolit- och mikrotjänstmodeller.
+                </p>
+              </div>
+            </li>
+
+            <li class="schedule__item">
+              <time datetime="11:30" class="schedule__time">11:30 – 12:45</time>
+              <div class="schedule__details">
+                <h3 class="schedule__title">Lunchpaus, utställarvandring &amp; demohubb</h3>
+                <p class="schedule__speaker">Gemensam aktivitet</p>
+                <p class="schedule__description">
+                  Njut av en säsongsbetonad lunchbuffé i Mälarsalen och upplev livedemonstrationer
+                  av de senaste AI-verktygen från våra utställande partners.
+                </p>
+              </div>
+            </li>
+
+            <li class="schedule__item">
+              <time datetime="12:45" class="schedule__time">12:45 – 13:45</time>
+              <div class="schedule__details">
+                <h3 class="schedule__title">
+                  Universell design &amp; tillgänglighet i en AI-förstärkt webb
+                </h3>
+                <p class="schedule__speaker">Elena Rostova, Future Interface</p>
+                <p class="schedule__description">
+                  Praktiska metoder för att bygga tillgängliga och inkluderande gränssnitt enligt
+                  WCAG 2.2, samt hur multimodala modeller kan assistera funktionshindrade.
+                </p>
+              </div>
+            </li>
+
+            <li class="schedule__item">
+              <time datetime="14:00" class="schedule__time">14:00 – 15:00</time>
+              <div class="schedule__details">
+                <h3 class="schedule__title">
+                  Datasäkerhet, nollförtroende och etik för moderna webbagenter
+                </h3>
+                <p class="schedule__speaker">Marcus Ekström, SecureWeb Scandinavia</p>
+                <p class="schedule__description">
+                  Sårbarhetsanalys och försvarsstrategier när autonoma agenter integreras i
+                  webbflöden. Från prompt-injektioner till säkra sandbox-miljöer.
+                </p>
+              </div>
+            </li>
+
+            <li class="schedule__item">
+              <time datetime="15:15" class="schedule__time">15:15 – 16:15</time>
+              <div class="schedule__details">
+                <h3 class="schedule__title">Panelsamtal: Vart är webben och AI på väg mot 2030?</h3>
+                <p class="schedule__speaker">Samtliga talare &amp; inbjudna gäster</p>
+                <p class="schedule__description">
+                  En livlig diskussion om öppna webbstandarder kontra stängda ekosystem och hur
+                  utvecklarrollen förändras när kodgenererande verktyg blir standard.
+                </p>
+              </div>
+            </li>
+
+            <li class="schedule__item">
+              <time datetime="16:15" class="schedule__time">16:15 – 18:30</time>
+              <div class="schedule__details">
+                <h3 class="schedule__title">After Work &amp; nätverksmingel med live-DJ</h3>
+                <p class="schedule__speaker">Münchenbryggeriets terrass</p>
+                <p class="schedule__description">
+                  Avrunda dagen med god mat, dryck och avslappnade diskussioner med talare och
+                  branschkollegor med utsikt över Riddarfjärden.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Sektion: Talare -->
+      <section id="talare" class="speakers" aria-labelledby="speakers-heading">
+        <div class="container speakers__container">
+          <header class="section-header">
+            <h2 id="speakers-heading" class="section-header__title">Huvudtalare</h2>
+            <p class="section-header__subtitle">
+              Möt branschens mest inflytelserika tänkare, utvecklare och forskare inom artificiell
+              intelligens och webbteknik.
+            </p>
+          </header>
+
+          <div class="speakers__grid">
+            <!-- Talare 1 -->
+            <article class="speaker-card" tabindex="0">
+              <figure class="speaker-card__figure">
+                <img
+                  src="assets/images/speaker-1.webp"
+                  alt="Porträtt av Dr. Astrid Lindholm, chef för AI-forskning på Nordic Intelligence"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  class="speaker-card__img"
+                />
+              </figure>
+              <div class="speaker-card__body">
+                <h3 class="speaker-card__name">Dr. Astrid Lindholm</h3>
+                <p class="speaker-card__role">Head of AI Research, Nordic Intelligence</p>
+              </div>
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__overlay-content">
+                  <p class="speaker-card__bio">
+                    Astrid har över 15 års erfarenhet inom djup maskininlärning och leder nordiska
+                    forskningsinitiativ kring lokala AI-modeller för webbläsare.
+                  </p>
+                  <p class="speaker-card__topic">
+                    <strong>Ämne:</strong> Generativ AI direkt i webbläsaren med WebGPU
+                  </p>
+                  <a
+                    href="https://linkedin.com"
+                    class="speaker-card__social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Besök Dr. Astrid Lindholms profil på LinkedIn"
+                  >
+                    @astridlindholm
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Talare 2 -->
+            <article class="speaker-card" tabindex="0">
+              <figure class="speaker-card__figure">
+                <img
+                  src="assets/images/speaker-2.webp"
+                  alt="Porträtt av Johan Bergström, chefsarkitekt på CloudNordic"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  class="speaker-card__img"
+                />
+              </figure>
+              <div class="speaker-card__body">
+                <h3 class="speaker-card__name">Johan Bergström</h3>
+                <p class="speaker-card__role">Principal Web Architect, CloudNordic</p>
+              </div>
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__overlay-content">
+                  <p class="speaker-card__bio">
+                    Specialiserad på distribuerade edge-nätverk och hyperoptimerad
+                    frontend-prestanda för webbapplikationer med miljontals samtidiga användare.
+                  </p>
+                  <p class="speaker-card__topic">
+                    <strong>Ämne:</strong> Framtidens webbarkitektur: Från SSR till Edge Computing
+                  </p>
+                  <a
+                    href="https://github.com"
+                    class="speaker-card__social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Besök Johan Bergströms GitHub-profil"
+                  >
+                    @johanbergstrom
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Talare 3 -->
+            <article class="speaker-card" tabindex="0">
+              <figure class="speaker-card__figure">
+                <img
+                  src="assets/images/speaker-3.webp"
+                  alt="Porträtt av Elena Rostova, tillgänglighets- och UX-expert på Future Interface"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  class="speaker-card__img"
+                />
+              </figure>
+              <div class="speaker-card__body">
+                <h3 class="speaker-card__name">Elena Rostova</h3>
+                <p class="speaker-card__role">
+                  Lead UX &amp; Accessibility Engineer, Future Interface
+                </p>
+              </div>
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__overlay-content">
+                  <p class="speaker-card__bio">
+                    Internationell föreläsare och W3C-inbjuden expert som brinner för universell
+                    tillgänglighet, WCAG 2.2 och empatisk gränssnittsdesign.
+                  </p>
+                  <p class="speaker-card__topic">
+                    <strong>Ämne:</strong> Universell design &amp; tillgänglighet i en AI-förstärkt
+                    webb
+                  </p>
+                  <a
+                    href="https://linkedin.com"
+                    class="speaker-card__social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Besök Elena Rostovas profil på LinkedIn"
+                  >
+                    @elenarostova
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Talare 4 -->
+            <article class="speaker-card" tabindex="0">
+              <figure class="speaker-card__figure">
+                <img
+                  src="assets/images/speaker-4.webp"
+                  alt="Porträtt av Marcus Ekström, cybersäkerhetschef på SecureWeb Scandinavia"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  class="speaker-card__img"
+                />
+              </figure>
+              <div class="speaker-card__body">
+                <h3 class="speaker-card__name">Marcus Ekström</h3>
+                <p class="speaker-card__role">Chief Security Officer, SecureWeb Scandinavia</p>
+              </div>
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__overlay-content">
+                  <p class="speaker-card__bio">
+                    Cybersäkerhetsexpert med bakgrund inom penetrationstestning och säkra
+                    runtime-miljöer för distribuerade AI-agenter och webbapplikationer.
+                  </p>
+                  <p class="speaker-card__topic">
+                    <strong>Ämne:</strong> Datasäkerhet, nollförtroende och etik för moderna
+                    webbagenter
+                  </p>
+                  <a
+                    href="https://twitter.com"
+                    class="speaker-card__social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Besök Marcus Ekströms profil på X/Twitter"
+                  >
+                    @marcusekstrom
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Talare 5 -->
+            <article class="speaker-card" tabindex="0">
+              <figure class="speaker-card__figure">
+                <img
+                  src="assets/images/speaker-5.webp"
+                  alt="Porträtt av Sofia Chen, maskininlärningsingenjör på NovaTech"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  class="speaker-card__img"
+                />
+              </figure>
+              <div class="speaker-card__body">
+                <h3 class="speaker-card__name">Sofia Chen</h3>
+                <p class="speaker-card__role">Staff Machine Learning Engineer, NovaTech</p>
+              </div>
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__overlay-content">
+                  <p class="speaker-card__bio">
+                    Pionjär inom realtidsinferens i webbappar, händelsedrivna dataströmmar och
+                    kontextmedvetna intelligenta användarupplevelser.
+                  </p>
+                  <p class="speaker-card__topic">
+                    <strong>Ämne:</strong> Realtids-AI: Från händelsedriven data till intuitiva
+                    användarflöden
+                  </p>
+                  <a
+                    href="https://github.com"
+                    class="speaker-card__social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Besök Sofia Chens GitHub-profil"
+                  >
+                    @sofiachen
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Talare 6 -->
+            <article class="speaker-card" tabindex="0">
+              <figure class="speaker-card__figure">
+                <img
+                  src="assets/images/speaker-6.webp"
+                  alt="Porträtt av Henrik Dahl, kreativ teknolog och medgrundare av HyperWeb Studio"
+                  width="400"
+                  height="400"
+                  loading="lazy"
+                  class="speaker-card__img"
+                />
+              </figure>
+              <div class="speaker-card__body">
+                <h3 class="speaker-card__name">Henrik Dahl</h3>
+                <p class="speaker-card__role">
+                  Creative Technologist &amp; Co-founder, HyperWeb Studio
+                </p>
+              </div>
+              <div class="speaker-card__overlay">
+                <div class="speaker-card__overlay-content">
+                  <p class="speaker-card__bio">
+                    Kreativ kodare som utforskar skärningspunkten mellan generativ konst,
+                    WebAssembly och spatial computing direkt i webbläsaren.
+                  </p>
+                  <p class="speaker-card__topic">
+                    <strong>Ämne:</strong> Kreativ kodning: WebAssembly och autonoma visuella
+                    upplevelser
+                  </p>
+                  <a
+                    href="https://linkedin.com"
+                    class="speaker-card__social"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Besök Henrik Dahls profil på LinkedIn"
+                  >
+                    @henrikdahl
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sektion: Biljetter -->
+      <section id="biljetter" class="tickets" aria-labelledby="tickets-heading">
+        <div class="container tickets__container">
+          <header class="section-header">
+            <h2 id="tickets-heading" class="section-header__title">Biljetter &amp; Priser</h2>
+            <p class="section-header__subtitle">
+              Välj den biljettnivå som passar dina behov bäst. Begränsat antal platser – boka din
+              plats i god tid.
+            </p>
+          </header>
+
+          <div class="tickets__grid">
+            <!-- Tier 1: Student -->
+            <article class="ticket-card">
+              <header class="ticket-card__header">
+                <h3 class="ticket-card__title">Student</h3>
+                <p class="ticket-card__description">För heltidsstuderande med giltigt student-ID</p>
+              </header>
+              <div class="ticket-card__price-box">
+                <p class="ticket-card__price">
+                  <span class="ticket-card__amount">995</span>
+                  <span class="ticket-card__currency">SEK</span>
+                </p>
+                <span class="ticket-card__vat">exkl. moms (1 244 SEK inkl. moms)</span>
+              </div>
+              <ul class="ticket-card__perks">
+                <li class="ticket-card__perk">
+                  Tillgång till samtliga presentationer i huvudsalen
+                </li>
+                <li class="ticket-card__perk">Morgonfika, förmiddagskaffe och säsongslunch</li>
+                <li class="ticket-card__perk">Tillgång till digitalt community och nätverksapp</li>
+                <li class="ticket-card__perk">Digitalt certifikat för deltagande</li>
+              </ul>
+              <div class="ticket-card__action">
+                <a href="#bestall-student" class="btn btn--outline ticket-card__btn"
+                  >Välj biljett</a
+                >
+              </div>
+            </article>
+
+            <!-- Tier 2: Standard (Featured) -->
+            <article class="ticket-card ticket-card--featured">
+              <div class="ticket-card__badge">Populärast</div>
+              <header class="ticket-card__header">
+                <h3 class="ticket-card__title">Standard</h3>
+                <p class="ticket-card__description">
+                  För professionella utvecklare, UX-designers och IT-arkitekter
+                </p>
+              </header>
+              <div class="ticket-card__price-box">
+                <p class="ticket-card__price">
+                  <span class="ticket-card__amount">2 995</span>
+                  <span class="ticket-card__currency">SEK</span>
+                </p>
+                <span class="ticket-card__vat">exkl. moms (3 744 SEK inkl. moms)</span>
+              </div>
+              <ul class="ticket-card__perks">
+                <li class="ticket-card__perk">
+                  Full tillgång till alla scener, workshops och demohubb
+                </li>
+                <li class="ticket-card__perk">
+                  Frukostbuffé, trerätters lunch och eftermiddagsfika
+                </li>
+                <li class="ticket-card__perk">
+                  Inspelningar av alla presentationer tillgängliga i 6 månader
+                </li>
+                <li class="ticket-card__perk">
+                  Officiellt Nordic AI konferenspaket med exklusiv swag
+                </li>
+                <li class="ticket-card__perk">
+                  Inträde till det officiella nätverksminglet med After Work
+                </li>
+              </ul>
+              <div class="ticket-card__action">
+                <a href="#bestall-standard" class="btn btn--primary ticket-card__btn"
+                  >Välj biljett</a
+                >
+              </div>
+            </article>
+
+            <!-- Tier 3: VIP & After Work -->
+            <article class="ticket-card">
+              <header class="ticket-card__header">
+                <h3 class="ticket-card__title">VIP &amp; After Work</h3>
+                <p class="ticket-card__description">
+                  Den ultimata upplevelsen för ledare, entreprenörer och tech-entusiaster
+                </p>
+              </header>
+              <div class="ticket-card__price-box">
+                <p class="ticket-card__price">
+                  <span class="ticket-card__amount">4 995</span>
+                  <span class="ticket-card__currency">SEK</span>
+                </p>
+                <span class="ticket-card__vat">exkl. moms (6 244 SEK inkl. moms)</span>
+              </div>
+              <ul class="ticket-card__perks">
+                <li class="ticket-card__perk">Allt som ingår i Standard-biljetten</li>
+                <li class="ticket-card__perk">
+                  Reserverade sittplatser på de främre raderna vid alla scener
+                </li>
+                <li class="ticket-card__perk">
+                  Fri tillgång till VIP-lounge med förfriskningar hela dagen
+                </li>
+                <li class="ticket-card__perk">
+                  Exklusiv inbjudan till privat middag tillsammans med talarna
+                </li>
+                <li class="ticket-card__perk">Fast track vid incheckning samt fri garderob</li>
+              </ul>
+              <div class="ticket-card__action">
+                <a href="#bestall-vip" class="btn btn--outline ticket-card__btn">Välj biljett</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sektion: Praktisk information -->
+      <section id="praktisk-info" class="practical-info" aria-labelledby="practical-heading">
+        <div class="container practical-info__container">
+          <header class="section-header">
+            <h2 id="practical-heading" class="section-header__title">Praktisk information</h2>
+            <p class="section-header__subtitle">
+              Allt du behöver veta inför ditt besök på Münchenbryggeriet den 20 november 2026.
+            </p>
+          </header>
+
+          <div class="practical-info__grid">
+            <div class="practical-info__content">
+              <article class="practical-info__block">
+                <h3 class="practical-info__block-title">Plats &amp; Hitta hit</h3>
+                <address class="practical-info__address">
+                  <strong>Münchenbryggeriet Event &amp; Konferens</strong><br />
+                  Torkel Knutssonsgatan 2<br />
+                  118 25 Stockholm<br />
+                  Sverige
+                </address>
+                <p class="practical-info__text">
+                  Närmaste tunnelbanestation är <strong>Mariatorget</strong> (röd linje), uppgång
+                  Torkel Knutssonsgatan (ca 5 minuters promenad). Busslinje 55 och 66 stannar även i
+                  direkt anslutning vid hållplats Rosenlund.
+                </p>
+              </article>
+
+              <article class="practical-info__block">
+                <h3 class="practical-info__block-title">Öppettider &amp; Hålltider</h3>
+                <ul class="practical-info__list">
+                  <li>
+                    <strong>Registrering &amp; morgonkaffe:</strong> Öppnar kl.
+                    <time datetime="08:00">08:00</time>
+                  </li>
+                  <li>
+                    <strong>Konferensprogram:</strong> Kl. <time datetime="09:00">09:00</time> –
+                    <time datetime="16:15">16:15</time>
+                  </li>
+                  <li>
+                    <strong>After Work &amp; Mingel:</strong> Kl.
+                    <time datetime="16:15">16:15</time> – <time datetime="18:30">18:30</time>
+                  </li>
+                </ul>
+              </article>
+
+              <article class="practical-info__block">
+                <h3 class="practical-info__block-title">Tillgänglighet</h3>
+                <p class="practical-info__text">
+                  Vi strävar efter att göra konferensen tillgänglig för alla. Lokalerna på
+                  Münchenbryggeriet uppfyller höga tillgänglighetskrav:
+                </p>
+                <ul class="practical-info__list">
+                  <li>
+                    Stegfria entréer och rymliga hissar till samtliga konferensplan och scener
+                  </li>
+                  <li>Teleslinga (hörselslinga) installerad och aktiv i huvudsalarna</li>
+                  <li>Tillgänglighetsanpassade toaletter på varje våningsplan</li>
+                  <li>Ledsagare går in kostnadsfritt vid föranmälan i samband med biljettköp</li>
+                </ul>
+              </article>
+            </div>
+
+            <figure class="practical-info__figure">
+              <img
+                src="assets/images/map-venue.webp"
+                alt="Översiktskarta som visar Münchenbryggeriet på Torkel Knutssonsgatan 2 vid Söder Mälarstrand i Stockholm"
+                width="800"
+                height="500"
+                loading="lazy"
+                class="practical-info__map-img"
+              />
+              <figcaption class="practical-info__figcaption">
+                Karta över Münchenbryggeriet på Södermalm i Stockholm. Närmaste tunnelbana är
+                Mariatorget.
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <div class="container footer__container">
-        <p class="footer__copyright">&copy; 2026 Konferens. Alla rättigheter förbehållna.</p>
+        <div class="footer__main">
+          <div class="footer__brand-box">
+            <p class="footer__brand">Nordic AI &amp; Future Web 2026</p>
+            <p class="footer__tagline">
+              Nordens främsta arena för framtidens artificiella intelligens och webbutveckling.
+            </p>
+          </div>
+
+          <div class="footer__nav-box">
+            <h3 class="footer__heading">Snabblänkar</h3>
+            <ul class="footer__nav-list">
+              <li><a href="#program" class="footer__link">Program</a></li>
+              <li><a href="#talare" class="footer__link">Talare</a></li>
+              <li><a href="#biljetter" class="footer__link">Biljetter</a></li>
+              <li><a href="#praktisk-info" class="footer__link">Praktisk info</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__contact-box">
+            <h3 class="footer__heading">Kontakt &amp; Support</h3>
+            <address class="footer__contact">
+              <p>Har du frågor om biljetter, sponsring eller tillgänglighet?</p>
+              <a href="mailto:kontakt@nordicaifutureweb.se" class="footer__email">
+                kontakt@nordicaifutureweb.se
+              </a>
+            </address>
+          </div>
+        </div>
+
+        <div class="footer__bottom">
+          <p class="footer__copyright">
+            &copy; 2026 Nordic AI &amp; Future Web. Alla rättigheter förbehållna.
+          </p>
+        </div>
       </div>
     </footer>
   </body>

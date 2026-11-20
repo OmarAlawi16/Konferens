@@ -77,3 +77,17 @@ Projektet följer **BEM** (Block Element Modifier) för modulär, förutsägbar 
   - Skapade `.prettierrc` och `.gitignore`.
   - Skapade grundläggande SCSS-arkitektur (`_variables.scss`, `_base.scss`, `main.scss`).
   - Lade till semantisk HTML5-mall på svenska (`index.html`).
+
+### Semantisk HTML5-struktur (Nordic AI & Future Web 2026)
+
+- **Prompt:** Bygg den kompletta semantiska HTML5-strukturen i `index.html` för den fiktiva tech-konferensen "Nordic AI & Future Web 2026" i Stockholm med strikta krav för VG-nivå.
+- **Åtgärder:**
+  - Implementerade korrekta landmärken: `<header>`, `<nav>`, `<main>` och `<footer>`.
+  - Lade till skip-link längst upp (`<a href="#main-content" class="skip-link">`).
+  - Etablerade en strikt rubrikhierarki: exakt ett `<h1>` (hero-titel), `<h2>` för sektioner och `<h3>` för artiklar och kort, utan nivåhopp.
+  - Skapade 4 innehållssektioner med semantiska element och BEM-struktur:
+    - **Program (`#program`):** Kronologiskt schema med `<ol>`, `<time>`, talare och sessionsbeskrivningar.
+    - **Talare (`#talare`):** 6 talarkort (`<article class="speaker-card">`) med bilder, bio, ämne och kontaktlänkar förberedda för hover och `:focus-within`.
+    - **Biljetter (`#biljetter`):** 3 nivåer (Student, Standard med `.ticket-card--featured`, VIP & After Work) med priser i SEK och förmånslistor.
+    - **Praktisk info (`#praktisk-info`):** Adressinformation med `<address>`, öppettider med `<time>`, tillgänglighetsinformation samt statisk karta (`assets/images/map-venue.webp`) i `<figure>` med `<figcaption>`.
+  - Formaterade hela projektet med Prettier.
