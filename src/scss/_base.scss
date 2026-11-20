@@ -216,3 +216,22 @@ select {
   font: inherit;
   color: inherit;
 }
+
+@media print {
+  .skip-link,
+  nav,
+  .btn {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline;
+  }
+}
