@@ -1,0 +1,598 @@
+// ==========================================
+// Sections: Schedule, Speakers, Tickets, Practical Info & Footer
+// ==========================================
+@use 'variables' as vars;
+
+// ------------------------------------------
+// 1. Schedule Section (#program)
+// ------------------------------------------
+.schedule {
+  padding-block: var(--space-3xl);
+  background-color: var(--color-bg);
+
+  &__list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    border: 1px solid var(--color-border-subtle);
+    border-radius: vars.$radius-xl;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--color-shadow);
+  }
+
+  // Structural pseudo-classes and child combinators
+  &__list > &__item {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+    padding: var(--space-lg);
+    background-color: var(--color-surface);
+    transition: background-color vars.$transition-fast;
+
+    @media (min-width: #{vars.$bp-tablet}) {
+      grid-template-columns: 170px 1fr;
+      gap: var(--space-xl);
+      align-items: baseline;
+      padding: var(--space-lg) var(--space-xl);
+    }
+
+    &:nth-child(even) {
+      background-color: var(--color-surface-muted);
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color-border-subtle);
+    }
+
+    &:hover {
+      background-color: var(--color-bg-subtle);
+    }
+  }
+
+  &__time {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: var(--font-size-base);
+    color: var(--color-accent);
+    letter-spacing: -0.01em;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  &__title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  &__speaker {
+    font-weight: 600;
+    font-size: var(--font-size-sm);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  &__description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-base);
+    margin-bottom: 0;
+  }
+}
+
+// ------------------------------------------
+// 2. Speakers Section (#talare)
+// ------------------------------------------
+.speakers {
+  padding-block: var(--space-3xl);
+  background-color: var(--color-bg-subtle);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    gap: var(--space-xl);
+  }
+}
+
+.speaker-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: vars.$radius-xl;
+  overflow: hidden;
+  box-shadow: 0 4px 16px var(--color-shadow);
+  transition:
+    transform vars.$transition-fast,
+    box-shadow vars.$transition-fast;
+
+  &:hover,
+  &:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px var(--color-shadow-lg);
+  }
+
+  &__figure {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: var(--color-surface-muted);
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform vars.$transition-base;
+  }
+
+  &:hover &__img,
+  &:focus-within &__img {
+    transform: scale(1.05);
+  }
+
+  &__body {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex-grow: 1;
+  }
+
+  &__name {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0;
+  }
+
+  &__role {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-snug);
+    margin-bottom: 0;
+  }
+
+  // Extra info overlay: revealed on :hover AND keyboard focus (:focus-within)
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(15, 23, 42, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(12px);
+    transition:
+      opacity vars.$transition-base,
+      transform vars.$transition-base,
+      visibility vars.$transition-base;
+    z-index: 2;
+  }
+
+  &:hover &__overlay,
+  &:focus-within &__overlay {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &__overlay-content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    color: #f8fafc;
+  }
+
+  &__bio {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-base);
+    color: #f1f5f9;
+    margin-bottom: 0.25rem;
+  }
+
+  &__topic {
+    font-size: var(--font-size-sm);
+    color: #e2e8f0;
+    line-height: var(--line-height-snug);
+    margin-bottom: 0.5rem;
+
+    strong {
+      color: #38bdf8;
+    }
+  }
+
+  &__social {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: #38bdf8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    width: fit-content;
+
+    &:hover,
+    &:focus {
+      color: #7dd3fc;
+    }
+  }
+}
+
+// ------------------------------------------
+// 3. Tickets Section (#biljetter)
+// ------------------------------------------
+.tickets {
+  padding-block: var(--space-3xl);
+  background-color: var(--color-bg);
+
+  &__grid {
+    display: grid;
+    // Auto-fit responsive grid preventing overflow across 320px–1440px and 300% zoom
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: var(--space-xl);
+    align-items: stretch;
+  }
+}
+
+.ticket-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: var(--space-xl);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: vars.$radius-xl;
+  box-shadow: 0 4px 16px var(--color-shadow);
+  transition:
+    transform vars.$transition-fast,
+    box-shadow vars.$transition-fast;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px var(--color-shadow-lg);
+  }
+
+  // Featured Tier (Middle Tier: Standard)
+  &--featured {
+    border: 2px solid var(--color-accent);
+    box-shadow: 0 8px 32px var(--color-shadow-lg);
+    background-color: var(--color-surface);
+
+    @media (min-width: #{vars.$bp-desktop}) {
+      transform: scale(1.03);
+
+      &:hover {
+        transform: scale(1.03) translateY(-4px);
+      }
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.35rem 1rem;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-accent-contrast);
+    background-color: var(--color-accent);
+    border-radius: vars.$radius-full;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+  }
+
+  &__header {
+    margin-bottom: var(--space-md);
+  }
+
+  &__title {
+    font-size: var(--font-size-2xl);
+    font-weight: 800;
+    margin-bottom: 0.25rem;
+  }
+
+  &__description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-snug);
+    margin-bottom: 0;
+  }
+
+  &__price-box {
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    font-size: var(--font-size-3xl);
+    font-weight: 800;
+    color: var(--color-text);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  &__amount {
+    letter-spacing: -0.02em;
+  }
+
+  &__currency {
+    font-size: var(--font-size-md);
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  &__vat {
+    display: block;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+  }
+
+  &__perks {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-xl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  &__perk {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    line-height: var(--line-height-base);
+    margin: 0;
+
+    &::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+      font-weight: 800;
+    }
+  }
+
+  // Ensures "Välj biljett" button always aligns cleanly at the bottom
+  &__action {
+    margin-top: auto;
+    display: flex;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}
+
+// ------------------------------------------
+// 4. Practical Info Section (#praktisk-info)
+// ------------------------------------------
+.practical-info {
+  padding-block: var(--space-3xl);
+  background-color: var(--color-bg-subtle);
+  border-top: 1px solid var(--color-border-subtle);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    align-items: start;
+
+    @media (min-width: #{vars.$bp-desktop}) {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: var(--space-2xl);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  &__block {
+    padding: var(--space-lg);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border-subtle);
+    border-radius: vars.$radius-lg;
+    box-shadow: 0 2px 8px var(--color-shadow);
+  }
+
+  &__block-title {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+
+  &__address {
+    font-style: normal;
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+  }
+
+  &__text {
+    font-size: var(--font-size-base);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-base);
+    margin-bottom: 0;
+  }
+
+  &__list {
+    margin: 0;
+    padding-left: 1.25rem;
+
+    li {
+      margin-bottom: 0.5rem;
+      color: var(--color-text);
+      line-height: var(--line-height-base);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__figure {
+    overflow: hidden;
+    border-radius: vars.$radius-xl;
+    border: 1px solid var(--color-border-subtle);
+    box-shadow: 0 4px 20px var(--color-shadow);
+    background-color: var(--color-surface);
+
+    @media (min-width: #{vars.$bp-desktop}) {
+      position: sticky;
+      top: 5.5rem;
+    }
+  }
+
+  &__map-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__figcaption {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    border-top: 1px solid var(--color-border-subtle);
+    background-color: var(--color-surface);
+  }
+}
+
+// Attribute Selectors for Links
+a[href^='mailto:'] {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 600;
+  color: var(--color-accent);
+
+  &::before {
+    content: '✉';
+    font-size: 1.1em;
+  }
+}
+
+a[href^='http://'],
+a[href^='https://'] {
+  &:not([class*='speaker-card'])::after {
+    content: ' ↗';
+    font-size: 0.85em;
+  }
+}
+
+// ------------------------------------------
+// 5. Footer (<footer>)
+// ------------------------------------------
+.footer {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border-subtle);
+  color: var(--color-text);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: var(--space-xl);
+    padding-block: var(--space-2xl);
+  }
+
+  &__brand {
+    font-weight: 800;
+    font-size: var(--font-size-md);
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  &__tagline {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-base);
+    margin-bottom: 0;
+  }
+
+  &__heading {
+    font-size: var(--font-size-base);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+  }
+
+  &__nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__link {
+    font-size: var(--font-size-sm);
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color vars.$transition-fast;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__contact {
+    font-style: normal;
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  &__email {
+    font-size: var(--font-size-sm);
+  }
+
+  &__bottom {
+    padding-block: var(--space-md);
+    border-top: 1px solid var(--color-border-subtle);
+    text-align: center;
+  }
+
+  &__copyright {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    margin-bottom: 0;
+  }
+}

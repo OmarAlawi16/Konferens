@@ -110,3 +110,17 @@ Projektet följer **BEM** (Block Element Modifier) för modulär, förutsägbar 
   - Uppdaterade `_base.scss` med `html { scroll-behavior: smooth; }` omslutet i `@media (prefers-reduced-motion: no-preference)`, `overflow-x: clip` för att eliminera horisontell scrollning vid 320–1440px och upp till 300% zoom, samt flytande typografi med `clamp()`.
   - Stylade tillgänglig skip-link (`.skip-link`) som syns vid `:focus-visible` samt anpassad högkontrast-fokusram (`outline: 3px solid var(--color-accent); outline-offset: 3px;`) för interaktiva element.
   - Kompilerade CSS med `npm run build:sass` och formaterade källkoden med Prettier.
+
+### Modulär Sass-layout och Sektionsstilar
+
+- **Prompt:** Skapa modulära Sass-partialer för layout och sektioner (`_layout.scss`, `_components.scss`, `_sections.scss`) med BEM, Flexbox och CSS Grid.
+- **Åtgärder:**
+  - `_layout.scss`: Klistrad `<nav>` med `backdrop-filter: blur(12px)` och flex-wrap för 320px/300% zoom-säkerhet. Modern redaktionell hero-sektion med datum/plats-brickor och primär CTA.
+  - `_components.scss`: Återanvändbara knappstilar (`.btn`, `.btn--primary`, `.btn--outline`) med mjuka hovringseffekter samt dekorativa accentlinjer på sektionsrubriker (`.section-header::after`).
+  - `_sections.scss`:
+    - **Program (`#program`):** CSS Grid för tidsstämpel och innehåll med strukturella pseudoklasser (`:nth-child(even)` och `:not(:last-child)`).
+    - **Talare (`#talare`):** Responsivt rutnät med talarkort och en detaljpanel (`.speaker-card__overlay`) som aktiveras vid både hover och `:focus-within`.
+    - **Biljetter (`#biljetter`):** Responsivt `auto-fit` CSS Grid (`minmax(min(100%, 17rem), 1fr)`) och Flexbox-kolumninriktning med `margin-top: auto` på knappen. Framhävd styling på mellannivån (`.ticket-card--featured`).
+    - **Praktisk info (`#praktisk-info`):** 2-kolumners Grid på desktop med sticky kartfigur samt attributselektorer (`a[href^="mailto:"]`).
+    - **Footer (`<footer>`):** Responsiv Grid/Flexbox-layout.
+  - Importerade samtliga partialer i `main.scss`, kompilerade minifierad CSS (19.2 KB) och formaterade med Prettier.

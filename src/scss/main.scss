@@ -5,8 +5,11 @@
 // Forward & import partials using Dart Sass module system
 @use 'variables' as vars;
 @use 'base';
+@use 'components';
+@use 'layout';
+@use 'sections';
 
-// Layout Container
+// Global Layout Container
 .container {
   width: 100%;
   max-width: vars.$container-max-width;

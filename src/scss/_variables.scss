@@ -66,6 +66,8 @@ $transition-slow: 0.4s ease;
   --color-shadow: rgba(15, 23, 42, 0.08);
   --color-shadow-lg: rgba(15, 23, 42, 0.16);
 
+  --color-nav-bg: rgba(255, 255, 255, 0.88);
+
   // Custom Focus Ring
   --focus-ring-color: var(--color-accent);
   --focus-ring-width: 3px;
@@ -123,6 +125,8 @@ $transition-slow: 0.4s ease;
 
     --color-shadow: rgba(0, 0, 0, 0.4);
     --color-shadow-lg: rgba(0, 0, 0, 0.6);
+
+    --color-nav-bg: rgba(11, 15, 25, 0.88);
 
     --focus-ring-color: var(--color-accent);
   }
