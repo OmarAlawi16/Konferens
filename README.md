@@ -91,3 +91,12 @@ Projektet följer **BEM** (Block Element Modifier) för modulär, förutsägbar 
     - **Biljetter (`#biljetter`):** 3 nivåer (Student, Standard med `.ticket-card--featured`, VIP & After Work) med priser i SEK och förmånslistor.
     - **Praktisk info (`#praktisk-info`):** Adressinformation med `<address>`, öppettider med `<time>`, tillgänglighetsinformation samt statisk karta (`assets/images/map-venue.webp`) i `<figure>` med `<figcaption>`.
   - Formaterade hela projektet med Prettier.
+
+### Bildgenerering och optimering (.webp)
+
+- **Prompt:** Skapa optimerade lokala WebP-bilder i `assets/images/` för samtliga bildreferenser i `index.html` med strikta storleks- och tillgänglighetskrav.
+- **Åtgärder:**
+  - Genererade 6 professionella vektorporträtt för talarna (`speaker-1.webp` till `speaker-6.webp`) i 600x600px som komprimerade WebP-filer (alla mellan 8.9 och 13.1 KB, långt under 100 KB-kravet).
+  - Skapade en arkitektonisk områdeskarta (`map-venue.webp`) i 1000x560px för Münchenbryggeriet vid Söder Mälarstrand med utmärkta tunnelbanestationer (Mariatorget, Slussen), gångvägar och bussförbindelser (33.6 KB, långt under 150 KB-kravet).
+  - Verifierade och uppdaterade `index.html` med exakta dimensioner (`width`/`height`), deskriptiva `alt`-texter på svenska och `loading="lazy"`.
+  - Tog bort `assets/images/.gitkeep` och formaterade med Prettier.
