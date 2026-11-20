@@ -10,6 +10,8 @@ En modern one-pager webbplats för en konferens, byggd med ren HTML5 och Sass (S
 
 Detta projekt är en responsiv one-pager för Konferens 2026. Webbplatsen presenterar information om konferensen, talare, schema, biljetter och kontaktuppgifter.
 
+- **Live-sida (GitHub Pages):** [Besök konferenssidan](https://omaralawi16.github.io/Konferens/)
+
 ### Kom igång & Utveckling
 
 Installera beroenden:
@@ -160,3 +162,15 @@ Projektet följer **BEM** (Block Element Modifier) för modulär, förutsägbar 
   - **Tangentbordsnavigering:** Verifierade att samtliga 35 interaktiva element kan nås via Tab i naturlig ordning utan positiva `tabindex`. Ersatte `overflow: hidden` på `.schedule__list` med explicit hörnrundning och gav `.speaker-card` `z-index: 5` vid fokus för att säkerställa att `:focus-visible`-ramen aldrig klipps.
   - **WCAG AA-kontrast:** Körde ett automatiserat testskript för samtliga 26 text/bakgrund/border-färgpar i ljust och mörkt läge (alla godkända med god marginal, 5.7:1–18.3:1 för text och 4.0:1–4.8:1 för UI-borders).
   - Återkompilerade produktions-CSS och formaterade med Prettier.
+
+  ### Verktyg, Viktiga Insikter & Kritisk Självreflektion
+
+- **Använda AI-verktyg:** Jag använde **Gemini** som arkitekturstöd och mentor för att bryta ner uppgiftskraven stegvis, samt **Antigravity** som kodagent direkt i utvecklingsmiljön för att generera HTML, Sass och optimerade bilder.
+- **Viktiga insikter under arbetet:**
+  - Jag lärde mig vikten av att alltid kombinera `:hover` med `:focus-within` så att dold kortinformation även blir tillgänglig vid tangentbordsnavigering.
+  - Att sätta explicita `width`- och `height`-attribut tillsammans med komprimerade `.webp`-bilder eliminerar layout-hopp (CLS) och ger toppresultat i Lighthouse.
+  - Genom att använda `min(100%, ...)` i CSS Grid och `clamp()` för typografi fungerar layouten helt utan horisontell scroll även vid 320 px bredd och 300 % webbläsarzoom.
+  - Animationer måste omslutas av `@media (prefers-reduced-motion: no-preference)` och stängas av vid `prefers-reduced-motion: reduce` för att inte orsaka obehag för känsliga användare.
+- **Kunskapsluckor & Kritisk självreflektion:**
+  - I början förlitade jag mig för mycket på att AI:n skulle hantera alla detaljer automatiskt, men insåg snabbt att jag själv behövde granska HTML-strukturen så att inga onödiga `<div>`-element smög sig in och att rubrikhierarkin (`h1` -> `h2` -> `h3`) höll streck.
+  - Jag behövde också själv verifiera kontrastvärdena i både ljust och mörkt tema (`prefers-color-scheme: dark`) samt planera mina commits bättre i förväg för att få en naturlig spridning över flera dagar. Till framtida projekt vill jag skriva ännu mer av grundstrukturen och Sass-variablerna själv innan jag tar hjälp av AI för finslipning.
