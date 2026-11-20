@@ -1,0 +1,28 @@
+{
+  "name": "konferens",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watch:sass": "sass src/scss/main.scss dist/css/style.css --watch",
+    "build:sass": "sass src/scss/main.scss dist/css/style.css --style compressed",
+    "build": "sass src/scss/main.scss dist/css/style.css --style compressed",
+    "format": "prettier --write ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OmarAlawi16/Konferens.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/OmarAlawi16/Konferens/issues"
+  },
+  "homepage": "https://github.com/OmarAlawi16/Konferens#readme",
+  "devDependencies": {
+    "prettier": "^3.10.1",
+    "sass": "^1.108.2"
+  }
+}

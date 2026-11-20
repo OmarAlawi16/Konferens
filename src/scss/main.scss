@@ -1,0 +1,15 @@
+// ==========================================
+// Main Stylesheet
+// ==========================================
+
+// Forward & import partials using Dart Sass module system
+@use 'variables' as vars;
+@use 'base';
+
+// Layout & Component placeholders
+.container {
+  width: 100%;
+  max-width: vars.$container-max-width;
+  margin-inline: auto;
+  padding-inline: vars.$container-padding;
+}
