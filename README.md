@@ -144,3 +144,13 @@ Projektet följer **BEM** (Block Element Modifier) för modulär, förutsägbar 
     - Omslöt alla aktiva animationer i `@media (prefers-reduced-motion: no-preference)`.
     - Implementerade en global `@media (prefers-reduced-motion: reduce)`-regel som sätter animation- och transition-duration till `0.01ms !important`.
   - Importerade båda modulerna i `main.scss`, kompilerade produktions-CSS (22.9 KB) och formaterade med Prettier.
+
+### Omfattande VG-kvalitetsaudit & Felsökning
+
+- **Prompt:** Utför en heltäckande kvalitetsaudit och åtgärda eventuella brister i `index.html` och `src/scss/` (HTML-validitet, semantik, responsivitet vid 320–1440px + 300% zoom, tangentbordsnavigering och WCAG AA-kontrast).
+- **Åtgärder:**
+  - **HTML-validering & semantik:** Ändrade doctype till `<!DOCTYPE html>`. Verifierade med W3C Nu HTML Validator (0 fel, 0 varningar). Bekräftade exakt 1 st `<h1>`, 4 st `<h2>` och 22 st `<h3>` utan nivåhopp samt exakt 4 huvudlandmärken (`<header>`, `<nav>`, `<main>`, `<footer>`).
+  - **Responsivitet & zoomstresstest:** Lade till `scroll-padding-top: clamp(4.5rem, 4rem + 2vw, 6.5rem)` på `html` så att klistrad meny aldrig skymmer fokuserat innehåll vid ankarhopp. Lade till `overflow-wrap: break-word` och `word-break: break-word` på `body` och rubriker för att säkra långa svenska ord.
+  - **Tangentbordsnavigering:** Verifierade att samtliga 35 interaktiva element kan nås via Tab i naturlig ordning utan positiva `tabindex`. Ersatte `overflow: hidden` på `.schedule__list` med explicit hörnrundning och gav `.speaker-card` `z-index: 5` vid fokus för att säkerställa att `:focus-visible`-ramen aldrig klipps.
+  - **WCAG AA-kontrast:** Körde ett automatiserat testskript för samtliga 26 text/bakgrund/border-färgpar i ljust och mörkt läge (alla godkända med god marginal, 5.7:1–18.3:1 för text och 4.0:1–4.8:1 för UI-borders).
+  - Återkompilerade produktions-CSS och formaterade med Prettier.

@@ -35,10 +35,13 @@ html,
 body {
   overflow-x: clip;
   max-width: 100%;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 html {
   font-size: 100%;
+  scroll-padding-top: clamp(4.5rem, 4rem + 2vw, 6.5rem);
 }
 
 body {
@@ -119,6 +122,8 @@ h6 {
   color: var(--color-text);
   font-weight: 700;
   text-wrap: balance;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 
 h1 {

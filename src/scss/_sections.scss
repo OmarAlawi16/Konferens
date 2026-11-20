@@ -16,7 +16,6 @@
     margin: 0;
     border: 1px solid var(--color-border-subtle);
     border-radius: vars.$radius-xl;
-    overflow: hidden;
     box-shadow: 0 4px 20px var(--color-shadow);
   }
 
@@ -28,6 +27,16 @@
     padding: var(--space-lg);
     background-color: var(--color-surface);
     transition: background-color vars.$transition-fast;
+
+    &:first-child {
+      border-top-left-radius: calc(vars.$radius-xl - 1px);
+      border-top-right-radius: calc(vars.$radius-xl - 1px);
+    }
+
+    &:last-child {
+      border-bottom-left-radius: calc(vars.$radius-xl - 1px);
+      border-bottom-right-radius: calc(vars.$radius-xl - 1px);
+    }
 
     @media (min-width: #{vars.$bp-tablet}) {
       grid-template-columns: 170px 1fr;
