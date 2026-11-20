@@ -124,3 +124,23 @@ Projektet följer **BEM** (Block Element Modifier) för modulär, förutsägbar 
     - **Praktisk info (`#praktisk-info`):** 2-kolumners Grid på desktop med sticky kartfigur samt attributselektorer (`a[href^="mailto:"]`).
     - **Footer (`<footer>`):** Responsiv Grid/Flexbox-layout.
   - Importerade samtliga partialer i `main.scss`, kompilerade minifierad CSS (19.2 KB) och formaterade med Prettier.
+
+### Avancerad talargalleri-styling & `@keyframes`-animationer
+
+- **Prompt:** Skapa `_speakers.scss` och `_animations.scss` med tillgängliga mus-/tangentbordsinteraktioner, avancerade CSS-selektorer och animationer med strikt stöd för `prefers-reduced-motion`.
+- **Åtgärder:**
+  - `_speakers.scss`:
+    - Responsivt CSS Grid med `repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr))`.
+    - Tangentbordstillgänglighet via `tabindex="0"` och fokuserbara länkar med dubbel aktivering (`:hover` och `:focus-within`).
+    - Avancerade selektorer för enkel kodinspektion:
+      - Barnkombinatorer (`>`), t.ex. `.speaker-card > .speaker-card__figure`, `.speaker-card > .speaker-card__overlay`.
+      - Intilliggande syskonkombinatorer (`+`), t.ex. `.speaker-card__name + .speaker-card__role`, `.speaker-card__bio + .speaker-card__topic`.
+      - Allmänna syskonkombinatorer (`~`), t.ex. `.speaker-card__topic ~ a[href^="https://"]`.
+      - Pseudoelement (`::before` / `::after`), för dekorativa färgindikatorer på spår och externa länkpilar.
+      - Attributselektorer, t.ex. `[data-track="ai-research"]` och `a[href^="https://"]`.
+    - Bildövergång från 25% gråskala till färg (`filter: grayscale(...)`) samt mjuk skalning (`scale(1.06)`).
+  - `_animations.scss`:
+    - Skapade `@keyframes fadeSlideUp` för stegvis herointräde och `@keyframes pulseGlow` för pulserande live-statuspunkt på registreringsbrickan.
+    - Omslöt alla aktiva animationer i `@media (prefers-reduced-motion: no-preference)`.
+    - Implementerade en global `@media (prefers-reduced-motion: reduce)`-regel som sätter animation- och transition-duration till `0.01ms !important`.
+  - Importerade båda modulerna i `main.scss`, kompilerade produktions-CSS (22.9 KB) och formaterade med Prettier.

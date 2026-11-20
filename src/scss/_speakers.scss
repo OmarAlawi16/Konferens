@@ -1,0 +1,278 @@
+// ==========================================
+// Speaker Gallery & Advanced Interactions
+// ==========================================
+@use 'variables' as vars;
+
+// ------------------------------------------
+// Section Container & Auto-Fit Grid
+// ------------------------------------------
+.speakers {
+  padding-block: var(--space-3xl);
+  background-color: var(--color-bg-subtle);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+
+  &__grid {
+    display: grid;
+    // Fluid responsive columns preventing overflow at 320px and 300% zoom
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17.5rem), 1fr));
+    gap: var(--space-xl);
+    align-items: stretch;
+  }
+}
+
+// ------------------------------------------
+// Speaker Card Component
+// ------------------------------------------
+.speaker-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: vars.$radius-xl;
+  overflow: hidden;
+  box-shadow: 0 4px 16px var(--color-shadow);
+  cursor: pointer;
+  transition:
+    transform vars.$transition-base,
+    box-shadow vars.$transition-base,
+    border-color vars.$transition-base;
+
+  // Track Colors via CSS Variables
+  --card-track-color: var(--color-accent);
+
+  // 1. ADVANCED SELECTOR: Attribute Selector ([data-track])
+  // Assigns distinct theme colors for conference tracks
+  &[data-track='ai-research'] {
+    --card-track-color: #38bdf8;
+  }
+
+  &[data-track='web-arch'] {
+    --card-track-color: #2dd4bf;
+  }
+
+  &[data-track='accessibility'] {
+    --card-track-color: #c084fc;
+  }
+
+  &[data-track='cyber-security'] {
+    --card-track-color: #10b981;
+  }
+
+  &[data-track='machine-learning'] {
+    --card-track-color: #f59e0b;
+  }
+
+  &[data-track='creative-tech'] {
+    --card-track-color: #d946ef;
+  }
+
+  // 2. ADVANCED SELECTOR: Pseudo-element (::before)
+  // Decorative track indicator line at the top of the card
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--card-track-color);
+    z-index: 3;
+    transition: height vars.$transition-fast;
+  }
+
+  // Keyboard accessibility & hover elevation
+  &:hover,
+  &:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px var(--color-shadow-lg);
+    border-color: var(--card-track-color);
+
+    &::before {
+      height: 6px;
+    }
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  // 3. ADVANCED SELECTOR: Child Combinator (>)
+  // Direct figure child
+  > .speaker-card__figure {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    background-color: var(--color-surface-muted);
+  }
+
+  // Media image: Subtle grayscale-to-color & zoom on hover/focus
+  &__img,
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(25%);
+    transform: scale(1);
+    transition:
+      filter vars.$transition-base,
+      transform vars.$transition-base;
+  }
+
+  &:hover &__img,
+  &:focus-within &__img,
+  &:hover &__image,
+  &:focus-within &__image {
+    filter: grayscale(0%);
+    transform: scale(1.06);
+  }
+
+  // 4. ADVANCED SELECTOR: Adjacent Sibling Combinator (+)
+  // Body immediately following figure
+  > .speaker-card__figure + .speaker-card__body,
+  > .speaker-card__body {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    flex-grow: 1;
+    background-color: var(--color-surface);
+  }
+
+  &__name {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0;
+  }
+
+  // 5. ADVANCED SELECTOR: Adjacent Sibling Combinator (+)
+  // Role directly adjacent to speaker name
+  &__name + &__role {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-snug);
+    margin-bottom: 0;
+    display: inline-flex;
+    align-items: center;
+
+    // 6. ADVANCED SELECTOR: Pseudo-element (::before)
+    // Decorative colored live track dot
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: var(--card-track-color);
+      margin-right: 0.5rem;
+      flex-shrink: 0;
+    }
+  }
+
+  // ------------------------------------------
+  // Extra Info Overlay / Drawer
+  // Revealed on :hover AND keyboard focus (:focus-within)
+  // ------------------------------------------
+  > .speaker-card__overlay,
+  > .speaker-card__details {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(11, 15, 25, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(14px);
+    transition:
+      opacity vars.$transition-base,
+      transform vars.$transition-base,
+      visibility vars.$transition-base;
+    z-index: 2;
+
+    // Child combinator for inner wrapper
+    > .speaker-card__overlay-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+      color: #f8fafc;
+    }
+  }
+
+  // Dual activation: Mouse hover AND keyboard focus-within
+  &:hover > .speaker-card__overlay,
+  &:focus-within > .speaker-card__overlay,
+  &:hover > .speaker-card__details,
+  &:focus-within > .speaker-card__details {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  &__bio {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-base);
+    color: #f1f5f9;
+    margin-bottom: 0.25rem;
+  }
+
+  // 7. ADVANCED SELECTOR: Adjacent Sibling Combinator (+)
+  // Topic adjacent to bio
+  &__bio + &__topic {
+    font-size: var(--font-size-sm);
+    color: #e2e8f0;
+    line-height: var(--line-height-snug);
+    margin-bottom: 0.5rem;
+
+    strong {
+      color: var(--card-track-color);
+      font-weight: 700;
+    }
+  }
+
+  // 8. ADVANCED SELECTOR: General Sibling Combinator (~) & Attribute Selector
+  // Social link following topic with secure external link styling
+  &__topic ~ a[href^='https://'],
+  &__social {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: var(--font-size-sm);
+    font-weight: 700;
+    color: var(--card-track-color);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    width: fit-content;
+    padding: 0.25rem 0.5rem;
+    border-radius: vars.$radius-sm;
+    background-color: rgba(255, 255, 255, 0.08);
+    transition:
+      color vars.$transition-fast,
+      background-color vars.$transition-fast;
+
+    // 9. ADVANCED SELECTOR: Pseudo-element (::after)
+    // External link icon
+    &::after {
+      content: '↗';
+      font-size: 0.9em;
+      transition: transform vars.$transition-fast;
+    }
+
+    &:hover,
+    &:focus-visible {
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.2);
+
+      &::after {
+        transform: translate(2px, -2px);
+      }
+    }
+  }
+}
