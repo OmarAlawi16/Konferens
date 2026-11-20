@@ -56,12 +56,18 @@ Projektet följer **BEM** (Block Element Modifier) för modulär, förutsägbar 
 
 <!-- Mätvärden för prestanda, tillgänglighet, best practices och SEO -->
 
-| Kategori                          | Mål | Nuvarande resultat |
-| :-------------------------------- | :-: | :----------------: |
-| 🚀 Prestanda (Performance)        | 90+ |  _Ej testad ännu_  |
-| ♿ Tillgänglighet (Accessibility) | 90+ |  _Ej testad ännu_  |
-| 🛡️ Bästa praxis (Best Practices)  | 90+ |  _Ej testad ännu_  |
-| 🔍 Sökmotoroptimering (SEO)       | 90+ |  _Ej testad ännu_  |
+| Kategori                          | Mål | Mobile | Desktop
+| :-------------------------------- | :-: | :-: | :-: |
+| 🚀 Prestanda (Performance)        | 90+ |  99 | 100 |
+| ♿ Tillgänglighet (Accessibility) | 90+ |  100 | 100 |
+| 🛡️ Bästa praxis (Best Practices)  | 90+ |  96 | 96 |
+| 🔍 Sökmotoroptimering (SEO)       | 90+ |  100 | 100 |
+
+### Skärmdump – Mobilläge
+![Lighthouse-resultat i mobilläge](assets/images/lighthouse-score-mobile.png)
+
+### Skärmdump – Desktopläge
+![Lighthouse-resultat i desktopläge](assets/images/lighthouse-score-desktop.png)
 
 ---
 
